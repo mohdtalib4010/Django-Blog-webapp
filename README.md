@@ -1,1 +1,2 @@
-It is a blog website where you can publish your articles
+It is a publishing platform build on Django
+
