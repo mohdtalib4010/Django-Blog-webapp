@@ -1,0 +1,30 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- main wrapper -->
+{% block body %}
+
+
+<header class="intro-header" style="background-image: url({% static 'img/about-bg.jpg'%})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Category</h1>
+                        <hr class="small">
+                        {% for i in blogCat %}
+                        <span class="subheading">
+                            <a href="{% url 'CatDetails' i.id  %}" style="color: white;">{{ i.name }} </a>
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+{% endblock %}

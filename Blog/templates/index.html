@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- main wrapper -->
+{% block body %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url({% static 'img/home-bg.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>my Journal</h1>
+                        <hr class="small">
+                        <span class="subheading">A Publishing Platform by Mohd Talib</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                 {% for i in blog reversed %}
+                <div class="post-preview">
+                    <a href="{% url 'blogsDetails' i.id %}">
+                        <h2 class="post-title">
+                            {{i.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{i.short_des}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by {{ i.user}}</a> on {{i.date}}</p>
+                </div>
+                <hr>
+                {% endfor %}
+                <hr>
+<!--                &lt;!&ndash; Pager &ndash;&gt;-->
+<!--                <ul class="pager">-->
+<!--                    <li class="next">-->
+<!--                        <a href="#">Older Posts &rarr;</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+        {% endblock %}

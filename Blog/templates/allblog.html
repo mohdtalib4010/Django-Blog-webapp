@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>All Blog of Database</h1>
+     {% for i in blog reversed %}
+    <li><a href="{% url 'blogsDetails' i.id %}">{{i.title}}</a></li>
+    {% endfor %}
+</center>
+</body>
+</html>

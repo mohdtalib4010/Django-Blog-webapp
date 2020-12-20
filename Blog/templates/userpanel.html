@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- main wrapper -->
+{% block body %}
+
+
+<header class="intro-header" style="background-image: url({% static 'img/about-bg.jpg'%})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+<!--                        <h1>UserPanel</h1>-->
+<!--                         <hr class="small">-->
+                        <img src="{{ userdata.image.url }}" style="width: 200px; height: 200px; border-radius: 50%;" />
+                        <span class="subheading">
+                             <h2>Welcome, {{ request.user.username }}</h2>
+                        </span>
+                        <center>
+                             <a href="{% url 'addBlog' %}"><button>PUBLISH</button></a>
+                             <a href="{% url 'addBlog' %}"><button>SETTINGS</button></a>
+                            <hr class="small">
+                        {% for i in userblogs %}
+                        <h3><a href="{% url 'blogsDetails' i.id %}">{{ i.title }}</a></h3>
+                            <hr>
+                        {% endfor %}
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+{% endblock %}

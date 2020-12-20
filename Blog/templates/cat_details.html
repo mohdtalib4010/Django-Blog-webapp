@@ -1,0 +1,49 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- main wrapper -->
+{% block body %}
+
+
+<header class="intro-header" style="background-image: url({% static 'img/about-bg.jpg'%})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h2>Articles</h2>
+                        <hr class="small">
+                        {% for i in blogs %}
+                        <span class="subheading">
+                           <h2><a href="{% url 'blogsDetails' i.id %}" style="color: white;">{{ i.title }}</a></h2>
+                        </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>All Blogs </h1>-->
+<!--            {% for i in blogs %}-->
+<!--           <h1><a href="{% url 'blogsDetails' i.id %}">{{ i.title }}</a></h1>-->
+<!--            {% endfor %}-->

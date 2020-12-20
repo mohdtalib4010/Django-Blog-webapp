@@ -1,0 +1,59 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Publish Your Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<center>
+    <h1>Publish Your Thoughts</h1>
+    <br>
+<div class="container">
+          <form action="" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+           <div class="form-group box">
+                          <label class="text-secondary">Chose Blog's Category </label><br>
+                          <select class="form-control" name="cat" required>
+                              <option>Add Category</option>
+                              {% for i in allcategory %}
+                                  <option value="{{ i.id }}">{{ i.name }}</option>
+                              {% endfor %}
+                          </select>
+
+           </div>
+
+
+          <div class="form-group">
+            <label>Enter Title</label>
+            <input class="form-control"   placeholder="Enter Title" name="title" required>
+            <small  class="form-text text-muted">Try to chose small and intrusting title.</small>
+          </div>
+          <div class="form-group">
+            <label>Short Description</label>
+            <textarea class="form-control"  rows="2" name="short" required></textarea>
+          </div>
+           <div class="form-group">
+            <label>Long Description</label>
+            <textarea class="form-control" rows="3" name="long" required></textarea>
+          </div>
+          <div class="form-group">
+            <input type="file" class="form-control-file" name="img" required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" name="submit">Publish</button>
+        </form>
+</center>
+</div>
+
+</body>
+</html>

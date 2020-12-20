@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Add Category</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Category Name"  Name="cname" required>
+        <br><br>
+        <input type="submit" value="Add Category">
+    </form>
+</center>
+</body>
+</html>
